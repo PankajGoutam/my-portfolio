@@ -1,11 +1,11 @@
 export const projects = [
     {
-        title: 'E-commerce Platform',
+        title: 'Gaurastra',
         description: 'A full-stack e-commerce platform built using MERN Stack together with Tailwind CSS.',
         technologies: ['React.js', 'JavaScript', 'Tailwind CSS', 'Phonepe'],
         githubLink: 'https://github.com',
         demoLink: 'https://www.gaurastra.com/',
-        image: '/projects/e-commerce-website.png',
+        image: '/projects/Gaurastra.png',
       },
       {
         title: 'Task Management App',
@@ -13,7 +13,7 @@ export const projects = [
         technologies: ['React', 'Node.js', 'MongoDB', 'Socket.io'],
         githubLink: 'https://github.com',
         demoLink: 'https://demo.com',
-        image: '/projects/task-manager.webp',
+        image: '/projects/caribbeaneaze.png',
       },
       // {
       //   title: 'Blog Platform',
