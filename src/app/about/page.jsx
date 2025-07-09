@@ -114,19 +114,6 @@ export default function About() {
           initial="initial"
           animate="animate"
         >
-          <motion.div 
-            className="bg-white dark:bg-dark/50 p-6 rounded-lg shadow-md"
-            variants={fadeInUp}
-            {...cardHoverSmall}
-          >
-            <h3 className="text-xl font-semibold mb-2">Senior Full Stack Developer</h3>
-            <p className="text-primary mb-2">Company Name • 2020 - Present</p>
-            <ul className="text-secondary list-disc list-inside space-y-2">
-              <li>Led development of multiple web applications using React and Node.js</li>
-              <li>Implemented CI/CD pipelines reducing deployment time by 50%</li>
-              <li>Mentored junior developers and conducted code reviews</li>
-            </ul>
-          </motion.div>
           
           <motion.div 
             className="bg-white dark:bg-dark/50 p-6 rounded-lg shadow-md"
@@ -134,7 +121,7 @@ export default function About() {
             {...cardHoverSmall}
           >
             <h3 className="text-xl font-semibold mb-2">Full Stack Developer</h3>
-            <p className="text-primary mb-2">Previous Company • 2018 - 2020</p>
+            <p className="text-primary mb-2">4Tuner's Technologies • Dec 2024 - Jun 2025</p>
             <ul className="text-secondary list-disc list-inside space-y-2">
               <li>Developed and maintained RESTful APIs</li>
               <li>Built responsive user interfaces with modern JavaScript frameworks</li>
@@ -144,7 +131,7 @@ export default function About() {
         </motion.div>
       </motion.section>
 
-      {/* Education Section */}
+      {/* Education Section
       <motion.section
         {...fadeIn}
         transition={{ delay: 0.6 }}
@@ -173,7 +160,7 @@ export default function About() {
             </p>
           </motion.div>
         </motion.div>
-      </motion.section>
+      </motion.section> */}
     </div>
   )
 } 

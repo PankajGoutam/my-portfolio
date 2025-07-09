@@ -1,9 +1,15 @@
-'use client'
-import Link from 'next/link'
-import { SunIcon, MoonIcon, Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
-import { useTheme } from '../context/ThemeContext'
-import { motion, AnimatePresence } from 'framer-motion'
-import { useState } from 'react'
+"use client";
+import Link from "next/link";
+import Image from 'next/image'
+import {
+  SunIcon,
+  MoonIcon,
+  Bars3Icon,
+  XMarkIcon,
+} from "@heroicons/react/24/outline";
+import { useTheme } from "../context/ThemeContext";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
 
 export default function Navbar() {
   const { theme, toggleTheme } = useTheme();
@@ -14,11 +20,10 @@ export default function Navbar() {
   };
 
   const menuItems = [
-    { href: '/', label: 'Home' },
-    { href: '/about', label: 'About' },
-    { href: '/projects', label: 'Projects' },
-    { href: '/blogs', label: 'Blogs' },
-    { href: '/contact', label: 'Contact' },
+    { href: "/about", label: "About" },
+    { href: "/projects", label: "Projects" },
+    { href: "/blogs", label: "Blogs" },
+    { href: "/contact", label: "Contact" },
   ];
 
   return (
@@ -26,15 +31,21 @@ export default function Navbar() {
       <div className="container max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="text-xl font-bold text-primary">
-            Devfolio&trade;
+            <Image
+              src={"/projects/favicon.png"}
+              alt={"HOME iCON"}
+              className="object-cover w-full h-full"
+              width={40}
+              height={40}
+            />
           </Link>
-          
+
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
             {menuItems.map((item) => (
-              <Link 
+              <Link
                 key={item.href}
-                href={item.href} 
+                href={item.href}
                 className="hover:text-primary transition-colors"
               >
                 {item.label}
@@ -46,7 +57,7 @@ export default function Navbar() {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
-              {theme === 'dark' ? (
+              {theme === "dark" ? (
                 <SunIcon className="h-5 w-5" />
               ) : (
                 <MoonIcon className="h-5 w-5" />
@@ -74,7 +85,7 @@ export default function Navbar() {
           {isMobileMenuOpen && (
             <motion.div
               initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
+              animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
               className="md:hidden"
@@ -108,7 +119,7 @@ export default function Navbar() {
                     }}
                     className="flex items-center py-2 hover:text-primary transition-colors"
                   >
-                    {theme === 'dark' ? (
+                    {theme === "dark" ? (
                       <>
                         <SunIcon className="h-5 w-5 mr-2" />
                         Light Mode
@@ -127,5 +138,5 @@ export default function Navbar() {
         </AnimatePresence>
       </div>
     </nav>
-  )
-} 
+  );
+}

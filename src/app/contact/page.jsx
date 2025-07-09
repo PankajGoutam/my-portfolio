@@ -5,21 +5,17 @@ import { FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa'
 import { motion } from 'framer-motion'
 import { fadeInUp, fadeIn, slideInLeft, slideInRight } from '@/utils/animations'
 
-const FormData = {
+// Initial state object
+const initialFormData = {
   name: "",
   email: "",
   message: "",
 }
 
-FormStatus = 'idle' | 'loading' | 'success' | 'error';
 
 export default function Contact() {
-  const [formData, setFormData] = useState<FormData>({
-    name: '',
-    email: '',
-    message: ''
-  })
-  const [status, setStatus] = useState<FormStatus>('idle')
+  const [formData, setFormData] = useState(initialFormData)
+  const [status, setStatus] = useState('idle')
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -34,11 +30,14 @@ export default function Contact() {
         body: JSON.stringify(formData),
       })
 
-      if (!response.ok) throw new Error('Failed to send message')
-      
-      setStatus('success')
-      setFormData({ name: '', email: '', message: '' })
-    } catch {
+      if (response.ok) {
+        setStatus('success')
+        setFormData(initialFormData)
+      } else {
+        setStatus('error')
+      }
+    } catch (error) {
+      console.error('Error:', error)
       setStatus('error')
     }
   }
