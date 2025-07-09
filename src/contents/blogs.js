@@ -1,6 +1,4 @@
-import { Blog} from "../types/index";
-
-export const Blog = [
+export const blogs = [
     {
         title: 'Getting Started with Next.js 14',
         excerpt: 'Learn about the new features and improvements in Next.js 14.',

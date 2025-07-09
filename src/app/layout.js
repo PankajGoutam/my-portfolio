@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const Metadata = {
+export const siteMetadata = {
   title: "Aayan Goutam",
   description: "Devfolio is a portfolio website for developers to showcase their projects and skills.",
 };

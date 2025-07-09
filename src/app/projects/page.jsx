@@ -1,6 +1,6 @@
 'use client'
 
-import { projects } from '@/contents/projects'
+import { Projects } from '@/contents/projects'
 import Image from 'next/image'
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa'
 import { motion } from 'framer-motion'

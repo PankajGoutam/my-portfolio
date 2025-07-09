@@ -1,7 +1,4 @@
-import { Project } from "../types/index";
-
-
-export const Project = [
+export const projects = [
     {
         title: 'E-commerce Platform',
         description: 'A full-stack e-commerce platform built using MERN Stack together with Tailwind CSS.',
