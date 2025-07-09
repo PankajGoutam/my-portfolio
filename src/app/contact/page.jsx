@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import toast from 'react-hot-toast'
 import { FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa'
 import { motion } from 'framer-motion'
 import { fadeInUp, fadeIn, slideInLeft, slideInRight } from '@/utils/animations'
@@ -31,14 +32,20 @@ export default function Contact() {
       })
 
       if (response.ok) {
+        toast.success('Message sent successfully! 🎉')
         setStatus('success')
         setFormData(initialFormData)
       } else {
+        toast.error("Something went wrong. Try again.");
         setStatus('error')
       }
     } catch (error) {
-      console.error('Error:', error)
+      toast.error("Failed to send message.");
       setStatus('error')
+      console.error('Error:', error)
+    }
+    finally{
+      setStatus('idle');
     }
   }
 
@@ -189,26 +196,6 @@ export default function Contact() {
             >
               {status === 'loading' ? 'Sending...' : 'Send Message'}
             </motion.button>
-            
-            {status === 'success' && (
-              <motion.p 
-                className="text-green-500 text-center"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-              >
-                Message sent successfully!
-              </motion.p>
-            )}
-            
-            {status === 'error' && (
-              <motion.p 
-                className="text-red-500 text-center"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-              >
-                Failed to send message. Please try again.
-              </motion.p>
-            )}
           </motion.form>
         </motion.div>
       </div>

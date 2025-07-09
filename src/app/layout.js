@@ -2,6 +2,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "./context/ThemeContext";
+import { Toaster } from "react-hot-toast";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
@@ -26,6 +27,23 @@ export default function RootLayout({ children }) {
     <body className={`bg-white transition-colors dark:bg-gray-900 dark:text-white ${geistSans.variable} ${geistMono.variable}`}>
         <ThemeProvider>
           <Navbar />
+          <Toaster
+            position="top-right"
+            toastOptions={{
+              success: {
+                style: {
+                  background: "#22c55e",
+                  color: "white",
+                },
+              },
+              error: {
+                style: {
+                  background: "#ef4444",
+                  color: "white",
+                },
+              },
+            }}
+          />
           <main className="min-h-screen pt-24">
             {children}
           </main>
